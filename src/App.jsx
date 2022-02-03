@@ -8,20 +8,28 @@ import {
 import "./style.css"
 import Invest from "./components/Invest";
 import Expense from "./components/Expense";
+import { Howl, Howler } from 'howler';
 
 function App() {
   const [money, setMoney] = useState(0);
 
   useEffect(() => {
-     let storedMoney = parseInt(localStorage.getItem("money"))
-     if(storedMoney){
+    let storedMoney = parseInt(localStorage.getItem("money"))
+    if (storedMoney) {
       setMoney(storedMoney)
-     }else{
-       localStorage.setItem("money",money)
-     }
-  
+    } else {
+      localStorage.setItem("money", money)
+    }
+
   }, []);
-  
+
+  function soundPlay(src) {
+    const sound = new Howl({
+      src
+    })
+    sound.play()
+  }
+
 
   return (
     <Router>
@@ -31,11 +39,11 @@ function App() {
         </Route>
 
         <Route path="/invest"  >
-          <Invest updateMoney={setMoney} money={money} />
+          <Invest soundPlay={soundPlay} updateMoney={setMoney} money={money} />
         </Route>
 
         <Route path="/expense" >
-          <Expense updateMoney={setMoney} money={money} />
+          <Expense soundPlay={soundPlay} updateMoney={setMoney} money={money} />
         </Route>
 
       </Switch>

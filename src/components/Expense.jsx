@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "../style.css"
-
+import cash from "../audionClips/cash.mp3"
 
 const KNAFE_PRICE = 23
 const MALABI_PRICE = 18
@@ -10,8 +10,7 @@ const KNAFE = "KNAFE"
 const MALABI = "MALABI"
 
 
-
-export default function Expense({ updateMoney, money }) {
+export default function Expense({ soundPlay, updateMoney, money }) {
 
   let history = useHistory();
   const [disableKnafe, setDisableKnafe] = useState(true);
@@ -34,14 +33,16 @@ export default function Expense({ updateMoney, money }) {
   function buy(price) {
     if (money > price) {
       updateMoney(money - price)
-      localStorage.setItem("money",money - price)
+      localStorage.setItem("money", money - price)
+
+      soundPlay(cash)
     }
   }
 
   return <div className='center'>
     <h1>Expense</h1>
     <p className='money'>money: {money}</p>
-    <button  className='expense-button action-button' disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
+    <button className='expense-button action-button' disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
     <button className='expense-button action-button' disabled={disableMalabi} onClick={() => buy(MALABI_PRICE)}>מלבי</button><br />
 
     <button onClick={e => history.push("/invest")}>invest</button>

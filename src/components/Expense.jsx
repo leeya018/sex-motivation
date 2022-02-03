@@ -1,6 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
+import "../style.css"
+
+
 const KNAFE_PRICE = 23
 const MALABI_PRICE = 18
 const KNAFE = "KNAFE"
@@ -35,11 +38,11 @@ export default function Expense({ updateMoney, money }) {
     }
   }
 
-  return <div>
+  return <div className='center'>
     <h1>Expense</h1>
-    <p>money: {money}</p>
-    <button disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
-    <button disabled={disableMalabi} onClick={() => buy(MALABI_PRICE)}>מלבי</button><br />
+    <p className='money'>money: {money}</p>
+    <button  className='expense-button action-button' disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
+    <button className='expense-button action-button' disabled={disableMalabi} onClick={() => buy(MALABI_PRICE)}>מלבי</button><br />
 
     <button onClick={e => history.push("/invest")}>invest</button>
 

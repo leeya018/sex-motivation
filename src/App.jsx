@@ -27,7 +27,7 @@ function App() {
     const sound = new Howl({
       src
     })
-    sound.play()
+     sound.play()
   }
 
 

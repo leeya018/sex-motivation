@@ -52,5 +52,26 @@
     .expense-button[disabled]{
       background-color: black;
     }
+    .coin-icon{
+
+      top:214px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      
+      position: absolute;
+      visibility: hidden;
+     
+    }
+    .move{
+      animation-name: example;
+      animation-duration: 3s;
+    }
+    @keyframes example {
+      0%   { visibility: visible;}
+      100%  { left:277px; top:55px;}
+      
+
     
+    }
   }

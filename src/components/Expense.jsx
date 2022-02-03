@@ -42,9 +42,9 @@ export default function Expense({ soundPlay, updateMoney, money }) {
   }
 
   return <div className='center'>
-    <h1>Expense</h1>
+    <h1>הוצאות</h1>
     <div className="money-container">
-      <p className='money'>money: {money}</p>
+      <p className='money'>ערך צבור: {money}</p>
       <div className="piggy">
         <FontAwesomeIcon icon={faPiggyBank} size="lg" />
       </div>
@@ -56,7 +56,7 @@ export default function Expense({ soundPlay, updateMoney, money }) {
       </div>
     </div>
 
-    <button onClick={e => history.push("/invest")}>invest</button>
+    <button onClick={e => history.push("/invest")}>הכנסות</button>
 
   </div>;
 }

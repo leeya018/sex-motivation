@@ -6,13 +6,28 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
+      
     }
     .money,h1{
       text-align: center;
     }
+    .money{
+      font-weight: bold;
+      font-size: large;
+    }
+    .money-container{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+    }
+    .piggy{
+      margin: auto;
+      padding-left: 1em;
+    }
     .container{
       display: flex;
       justify-content: center;
+      padding-top: 7em;
     }
     .buttons{
       display: flex;
@@ -36,7 +51,6 @@
     }
     .expense-button[disabled]{
       background-color: black;
-
     }
     
   }

@@ -6,7 +6,8 @@ import dateSound from "../audionClips/date_sound.mp3"
 import phoneSound from "../audionClips/phone_sound.mp3"
 import hitSound from "../audionClips/hit_sound.mp3"
 
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPiggyBank } from '@fortawesome/free-solid-svg-icons'
 
 const HIT_VALUE = 1
 const PHONE_VALUE = 3
@@ -37,7 +38,12 @@ export default function Invest({ soundPlay, updateMoney, money }) {
 
   return <div className='center'>
     <h1>Invest</h1>
-    <p className='money'>money: {money}</p>
+    <div className="money-container">
+      <p className='money'>money: {money}</p>
+      <div className="piggy">
+        <FontAwesomeIcon icon={faPiggyBank} size="lg" />
+      </div>
+    </div>
     <div className='container'>
       <div className="buttons">
         <button className='invest-button action-button' onClick={() => investMoney(HIT, money + HIT_VALUE)}>HIT</button><br />

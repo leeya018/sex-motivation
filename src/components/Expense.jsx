@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "../style.css"
 import cash from "../audionClips/cash.mp3"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPiggyBank } from '@fortawesome/free-solid-svg-icons'
 
 const KNAFE_PRICE = 23
 const MALABI_PRICE = 18
@@ -41,9 +43,18 @@ export default function Expense({ soundPlay, updateMoney, money }) {
 
   return <div className='center'>
     <h1>Expense</h1>
-    <p className='money'>money: {money}</p>
-    <button className='expense-button action-button' disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
-    <button className='expense-button action-button' disabled={disableMalabi} onClick={() => buy(MALABI_PRICE)}>מלבי</button><br />
+    <div className="money-container">
+      <p className='money'>money: {money}</p>
+      <div className="piggy">
+        <FontAwesomeIcon icon={faPiggyBank} size="lg" />
+      </div>
+    </div>
+    <div className="container">
+      <div className="buttons">
+        <button className='expense-button action-button' disabled={disableKnafe} onClick={() => buy(KNAFE_PRICE)}>כנאפה</button><br />
+        <button className='expense-button action-button' disabled={disableMalabi} onClick={() => buy(MALABI_PRICE)}>מלבי</button><br />
+      </div>
+    </div>
 
     <button onClick={e => history.push("/invest")}>invest</button>
 

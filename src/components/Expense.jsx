@@ -33,7 +33,7 @@ export default function Expense({ soundPlay, updateMoney, money }) {
   }
 
   function buy(price) {
-    if (money > price) {
+    if (money >= price) {
       updateMoney(money - price)
       localStorage.setItem("money", money - price)
 

@@ -12,6 +12,17 @@ import Expense from "./components/Expense";
 function App() {
   const [money, setMoney] = useState(0);
 
+  useEffect(() => {
+     let storedMoney = parseInt(localStorage.getItem("money"))
+     if(storedMoney){
+      setMoney(storedMoney)
+     }else{
+       localStorage.setItem("money",money)
+     }
+  
+  }, []);
+  
+
   return (
     <Router>
       <Switch>

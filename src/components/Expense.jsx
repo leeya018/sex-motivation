@@ -17,7 +17,6 @@ export default function Expense({ updateMoney, money }) {
   const [disableKnafe, setDisableKnafe] = useState(true);
   const [disableMalabi, setDisableMalabi] = useState(true);
 
-
   useEffect(() => {
     updateDisableForSweets(KNAFE_PRICE, setDisableKnafe)
     updateDisableForSweets(MALABI_PRICE, setDisableMalabi)
@@ -35,6 +34,7 @@ export default function Expense({ updateMoney, money }) {
   function buy(price) {
     if (money > price) {
       updateMoney(money - price)
+      localStorage.setItem("money",money - price)
     }
   }
 
